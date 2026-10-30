@@ -6,15 +6,11 @@ using System.Text;
 
 namespace Restaurants.Infrastructure.Persistence
 {
-    public class RestaurantsDbContext:DbContext
+    internal class RestaurantsDbContext(DbContextOptions<RestaurantsDbContext> options) : DbContext(options)
     {
-        public DbSet<Restaurant> Restaurants { get; set; }
-        public DbSet<Dish> Dishes { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            //base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=RestaurantsDb;Trusted_Connection=True;");
-        }
+        internal DbSet<Restaurant> Restaurants { get; set; }
+        internal DbSet<Dish> Dishes { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
