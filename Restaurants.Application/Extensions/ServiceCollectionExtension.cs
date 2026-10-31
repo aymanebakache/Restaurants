@@ -11,6 +11,7 @@ namespace Restaurants.Application.Extensions
         public static void AddApplication(this IServiceCollection service)
         {
             service.AddScoped<IRestaurantsService, RestaurantService>();
+            service.AddAutoMapper(cfg=>cfg.AddMaps(typeof(ServiceCollectionExtension).Assembly));
         }
     }
 }
