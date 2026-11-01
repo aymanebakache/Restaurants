@@ -5,20 +5,20 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ###
 
-@id=6
+@id=2
 GET {{Restaurants.API_HostAddress}}/api/restaurants/{{id}}
 
 ###
 POST {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type:application/json
 {
-    "Name": "Tasty Bites",
-      "Description": "A cozy restaurant serving a variety of delicious dishes.",
-      "Category": "American",
+    "Name": "Pastilla",
+      "Description": "A cozy restaurant serving a variety of moroccan delicious dishes.",
+      "Category": "Moroccan",
       "HasDelivery": true,
       "ContactEmail": "info@test.com",
       "ContactNumber": "555-1234",
-      "City": "New York",
+      "City": "Casablanca",
       "Street": "123 Main Street",
-      "PostalCode": "10-610"
+      "PostalCode": "10-005"
 }

@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
-namespace Restaurants.Application.Restaurants.Dtos
+using System.Net;
+using MediatR;
+namespace Restaurants.Application.Restaurants.Commands.CreateRestaurant
 {
-    public class CreateRestaurantDto
+    public class CreateRestaurantCommand:IRequest<int>
     {
         
         public string Name { get; set; } = default!;

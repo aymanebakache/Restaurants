@@ -12,7 +12,7 @@ namespace Restaurants.Application.Extensions
         public static void AddApplication(this IServiceCollection service)
         {
             var applicationAssembly = typeof(ServiceCollectionExtension).Assembly;
-            service.AddScoped<IRestaurantsService, RestaurantService>();
+            service.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(applicationAssembly));
             
             service.AddAutoMapper(cfg=>cfg.AddMaps(applicationAssembly));
             service.AddValidatorsFromAssembly(applicationAssembly);
