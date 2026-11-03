@@ -5,7 +5,7 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ###
 
-@id=9
+@id=2
 GET {{Restaurants.API_HostAddress}}/api/restaurants/{{id}}
 
 ###
