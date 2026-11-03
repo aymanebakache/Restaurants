@@ -21,8 +21,8 @@ namespace Restaurants.API.Controllers
             if (!result.IsValid)
                 return BadRequest(result.ToDictionary());
             createDishCommand.RestaurantId = restaurantId;
-            await mediator.Send(createDishCommand);
-            return Created();
+            var dishId=await mediator.Send(createDishCommand);
+            return CreatedAtAction(nameof(GetByIdForRestaurant), new { restaurantId, dishId }, null);
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DishDto>>> GetAllForRestaurant([FromRoute] int restaurantId)
