@@ -67,3 +67,19 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants/{{restaurantId}}/dishes/{{di
 DELETE {{Restaurants.API_HostAddress}}/api/restaurants/10/dishes
 
 ###
+https://localhost:7108/api/restaurants/10/dishes/4
+###
+POST {{Restaurants.API_HostAddress}}/register
+content-type:application/json
+{
+    "email":"test@asp.net",
+    "password":"Aymane@1"
+}
+
+###
+POST {{Restaurants.API_HostAddress}}/login
+content-type:application/json
+{
+    "email":"test@asp.net",
+    "password":"Aymane@1"
+}
