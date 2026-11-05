@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Restaurants.Application.Restaurants;
+using Restaurants.Application.Users;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,6 +17,8 @@ namespace Restaurants.Application.Extensions
             
             service.AddAutoMapper(cfg=>cfg.AddMaps(applicationAssembly));
             service.AddValidatorsFromAssembly(applicationAssembly);
+            service.AddScoped<IUserContext, UserContext>();
+            service.AddHttpContextAccessor();
         }
     }
 }
