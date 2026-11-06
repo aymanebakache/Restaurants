@@ -1,6 +1,5 @@
 @Restaurants.API_HostAddress = https://localhost:7108
-@token=CfDJ8IQrsw17J5ZHqy02B1iaiL6ZQ4HLIP873Kr9cMaw_up-rBPPlC5GECZkeceobfMSnebBmSbBSTmjZe240rAf4-X1XSxiBpoqbXxnU3ypuz12oHbB8b4TH5VwbVDJTLPBM8QS-lgT04I-04gV_ivAQFqcAoihNfkoo0Ym6CltkF2Dy8835NkPk-t7-EuCstYYNeDfbWBgEu6PTPW_7Ld06Pcadl3uZ9LG9MSH0sjXjmHIqBZ8nYhf4O2A6XMXxGsBuix0cbyfOJQLBNyFT3UTFb6pdnrVBnbptZ2P8BI-q1woZd1bdtEYOzkootO78Ug5SojLpfIjm9pbRlhUjJCe189g9s0P9V8L1yof3MoxYSwBOcvbMYrcQyZsmCBz0QuizWN4XYWZvGx9I9nTMSWuV3rhXvHD7YWTA4PNoQQGVagRRD4s8JqYah1Erc0v-hzACludhZcDaI3vT-EOGFMrXrVuSfevOpnn9Bp97UWw9NHAwHJEqCB-yVPdY-5yxnIomPUD-0bSXNGGhEuqlZUuz-1Y09aPkAa9pZw1BrpmBjgShc-tnLVCWpvguWb99wEsnHvjDWwUnRV7qS-xchzqggXzXuUIPPLPaEU1bdajqSSw_rSn7s8hbtKrc0fzcBrdnZxR5cV4Jlohco1Jqlfvhr56ruAxiCk2Rh85owxHTtlPXA7F27P3dEe37ZbuAz4O-w
-
+@token=CfDJ8IQrsw17J5ZHqy02B1iaiL6iFYy3DvzaKTIP5AYjj5mU8D9G2shOlKfVwaF3cgiTa9a-LiGnkNXBk5rRX5c9pkIOclDCZCVkM8FH06wn0WpFbY6xvr-wDCOiZqGIaRGWCht0MwyrSqQGO1Q58sUueuZ6B62ZOEXxuXpmxtfYCwK9QGXvJdamZiM_KT56upZMmXb1r8F7LmtkPRLC4dysgKOaWSAxWq3CFiOZ0BRxln89eX7g8L8EdYcaNo4KJVZnvlt4Hbw32wiOYe67p7JcVhzbpfCHBRdv8CwbulZleURB5UvNL5uvf1T3nUl009q_FdCCdNnzd01h47BriRHd42xinBGr2u7sn0ofB261m2nnyHh5WktwSFfH6TlF1MLDEdEnqDtEc1lIu5F07mHVnHj2eWCdof0BX0Z36UX8MPA0goVzcO12jx8tircm3njcEb5jK73Y3OeAUwvpKqTN3Pq1D2XQitnHavmG-ZZ_K6f0nR8v9l29nq5Ra5ogUZBXmtXoDxSR-rHQr-YbLPK_BxWfuGG1e23bviAHXTwqV-VwOnMlGsl22eabNok9lO5pn0aSogLmJH0P7H71I_cj032DLTkueoHmEVmckE0rdcpOoqM1PpJDz3d0Hpu-rZ8484y_2I8GRybjBvyh_7SkVMQGV2_MkyPtEZ9MKZRHLStWTHN4L_G4hxL2DwsZoWIsFg
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 Authorization: Bearer {{token}}
 
@@ -75,7 +74,7 @@ https://localhost:7108/api/restaurants/10/dishes/4
 POST {{Restaurants.API_HostAddress}}/api/identity/register
 content-type:application/json
 {
-    "email":"test@asp.net",
+    "email":"admin@asp.net",
     "password":"Aymane@1"
 }
 
@@ -83,6 +82,17 @@ content-type:application/json
 POST {{Restaurants.API_HostAddress}}/api/identity/login
 content-type:application/json
 {
-    "email":"test@asp.net",
+    "email":"user@asp.net",
     "password":"Aymane@1"
 }
+###
+PATCH {{Restaurants.API_HostAddress}}/api/identity/user
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "email":"user@asp.net",
+    "password":"Aymane@1"
+}
+
+###

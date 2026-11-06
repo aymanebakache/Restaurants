@@ -22,6 +22,7 @@ namespace Restaurants.Infrastructure.Extensions
                                                         options.UseSqlServer(connectionString)
                                                                 .EnableSensitiveDataLogging());
             services.AddIdentityApiEndpoints<User>()
+                    .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<RestaurantsDbContext>();
             services.AddScoped<IRestaurantSeeder, RestaurantSeeder>();
             services.AddScoped<IRestaurantsRepository, RestaurantsRepository>();
