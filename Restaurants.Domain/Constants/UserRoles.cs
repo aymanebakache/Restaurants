@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Restaurants.Domain.Constants
 {
-    public class UserRole
+    public class UserRoles
     {
         public const string Owner = "Owner";
         public const string Admin = "Admin";

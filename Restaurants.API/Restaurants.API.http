@@ -1,5 +1,10 @@
 @Restaurants.API_HostAddress = https://localhost:7108
-@token=CfDJ8IQrsw17J5ZHqy02B1iaiL6iFYy3DvzaKTIP5AYjj5mU8D9G2shOlKfVwaF3cgiTa9a-LiGnkNXBk5rRX5c9pkIOclDCZCVkM8FH06wn0WpFbY6xvr-wDCOiZqGIaRGWCht0MwyrSqQGO1Q58sUueuZ6B62ZOEXxuXpmxtfYCwK9QGXvJdamZiM_KT56upZMmXb1r8F7LmtkPRLC4dysgKOaWSAxWq3CFiOZ0BRxln89eX7g8L8EdYcaNo4KJVZnvlt4Hbw32wiOYe67p7JcVhzbpfCHBRdv8CwbulZleURB5UvNL5uvf1T3nUl009q_FdCCdNnzd01h47BriRHd42xinBGr2u7sn0ofB261m2nnyHh5WktwSFfH6TlF1MLDEdEnqDtEc1lIu5F07mHVnHj2eWCdof0BX0Z36UX8MPA0goVzcO12jx8tircm3njcEb5jK73Y3OeAUwvpKqTN3Pq1D2XQitnHavmG-ZZ_K6f0nR8v9l29nq5Ra5ogUZBXmtXoDxSR-rHQr-YbLPK_BxWfuGG1e23bviAHXTwqV-VwOnMlGsl22eabNok9lO5pn0aSogLmJH0P7H71I_cj032DLTkueoHmEVmckE0rdcpOoqM1PpJDz3d0Hpu-rZ8484y_2I8GRybjBvyh_7SkVMQGV2_MkyPtEZ9MKZRHLStWTHN4L_G4hxL2DwsZoWIsFg
+@token=CfDJ8IQrsw17J5ZHqy02B1iaiL5KBjKcN62V_9KYr7nsH6KAFAIYxCXLzRKV7W3P1AbPsGdemEirmyH0ws-C4-gnYOnZw-0QuxRgT69GXqNoblyAnUFRk1kJcttlKrUdOR4v924_KV6M76bEezUZZOSgEckBUTzdgsr12eNGBBO19TA3slU3W17NDMMc8kaHd0zqTkjGNNcGAD-7immguYFFs4GwEGN9_TiTlaPEfT1yJ_JPW1kYCz3oEJafq3KAmgxFUl_ayZ088h6o59RLi5VT48i-i218usvISDRIH_sGA_4wZp0w7VlqtMkSXYnHhlmRWpLO2lKMmODNZWDzMB7UOROlyoUUUF4bJMVShUfniKhgUWbBlqxqD236gQQ6GTqVQkz-Z_quCSZKhTk_4ZnMIa_3d5un93Qh6qFkHS_mdyQzv4Gp43ObvpSvoQMVZfK0ubcuOkj8mXrcAbIiLqPDpT7cL7gN3q2Ek8UcZceAwsHJgIO7VXIrkhmRTMbzYclblrcR9TT7GDFN7LMILQxoksSDgbnF-zHeg80Sk52VfmTDscvdJfuVKC6BSliNnlf9XVDjopC3IxqmRZXo8vfHuAoGdERj7KRMYVH4Bu9_6zqLLtFZ_cNEtypW0eedA8AeC-4x49XPsnb1a1Ih3SQPj4TGkCEWSb0AcxoAzH81FBs64U2Y1GpewXKtloCVzAO_JUag7dDI1u-LGj_yUUopmGM9cCW-mnf6u583Eu0nFnBOn0u5wYXLFAMwxBpqgCPJ7miwcbqovQ_Y2wtdOK9n-ZyhfgtWZ3DDMa_eqiACM5XS
+
+
+
+
+
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 Authorization: Bearer {{token}}
 
@@ -12,9 +17,10 @@ Authorization: Bearer {{token}}
 
 ###
 POST {{Restaurants.API_HostAddress}}/api/restaurants
+Authorization: Bearer {{token}}
 Content-Type:application/json
 {
-    "Name": "Pastilla",
+    "Name": "Pastilla testing with admin",
       "Description": "A cozy restaurant serving a variety of moroccan delicious dishes.",
       "Category": "Moroccan",
       "HasDelivery": true,

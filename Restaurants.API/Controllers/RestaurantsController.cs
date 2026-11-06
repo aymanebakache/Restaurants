@@ -35,7 +35,7 @@ public class RestaurantsController(IMediator mediator) : ControllerBase
     }
     
     [HttpPost]
-    [Authorize(Roles =UserRole.Owner)]
+    [Authorize(Roles =UserRoles.Owner)]
     public async Task<IActionResult> CreateRestaurant(CreateRestaurantCommand createRestaurantCommand,IValidator<CreateRestaurantCommand> validator)
     {
         var result = await validator.ValidateAsync(createRestaurantCommand);

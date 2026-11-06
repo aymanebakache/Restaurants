@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Restaurants.Infrastructure.Seeders
 {
-    internal class RestaurantSeeder(RestaurantsDbContext dbContext):IRestaurantSeeder
+    internal class RestaurantSeeder(RestaurantsDbContext dbContext) : IRestaurantSeeder
     {
         public async Task Seed()
         {
@@ -20,7 +20,7 @@ namespace Restaurants.Infrastructure.Seeders
                     dbContext.AddRange(restaurants);
                     await dbContext.SaveChangesAsync();
                 }
-                if(!dbContext.Roles.Any())
+                if (!dbContext.Roles.Any())
                 {
                     var roles = GetRoles();
                     dbContext.Roles.AddRange(roles);
@@ -30,7 +30,19 @@ namespace Restaurants.Infrastructure.Seeders
         }
         private IEnumerable<IdentityRole> GetRoles()
         {
-            List<IdentityRole> roles = [new(UserRole.Owner), new(UserRole.Admin), new(UserRole.User)];
+            List<IdentityRole> roles = [
+            new(UserRoles.Owner)
+            {
+            NormalizedName=UserRoles.Owner.ToUpper()
+            },
+            new(UserRoles.Admin)
+            {
+            NormalizedName=UserRoles.Admin.ToUpper()
+            },
+            new(UserRoles.User)
+            {
+            NormalizedName=UserRoles.User.ToUpper()
+            }];
             return roles;
         }
 
