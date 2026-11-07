@@ -18,11 +18,11 @@ namespace Restaurants.Infrastructure.Authorization
             var id = await GenerateClaimsAsync(user);
             if(user.Nationality!=null)
             {
-                id.AddClaim(new Claim("Nationality", user.Nationality));
+                id.AddClaim(new Claim(AppClaimTypes.Nationality, user.Nationality));
             }
             if(user.BirthDay!=null)
             {
-                id.AddClaim(new Claim("BirthDay", user.BirthDay.Value.ToString("yyyy-MM-dd")));
+                id.AddClaim(new Claim(AppClaimTypes.BirthDay, user.BirthDay.Value.ToString("yyyy-MM-dd")));
             }
             return new ClaimsPrincipal(id);
         }

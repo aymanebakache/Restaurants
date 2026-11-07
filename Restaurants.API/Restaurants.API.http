@@ -1,8 +1,5 @@
 @Restaurants.API_HostAddress = https://localhost:7108
-@token=CfDJ8IQrsw17J5ZHqy02B1iaiL7DU1nYUKgcgLk-ov-s67zo8Ll6VF6nuBLmLSRXs4--lTIG_4384Hi5XhnosQ1RReCD-Q7JJKM9-a4xDJusSuVleX2SsozVg1oXl7Dhu7m6OkX4hfTWyPISHQzSJh7-oFM73EbCkPfy0ECfrxFYJsIOpCWwgajqBP_FT1aXtuKzkSV79BYOz_50B9S7CJqn4GxkRM4V5dxlb5Ntlk6E0bgrkDc_aHsBz_8BAt-5iQYoDeMQSvzx_hQtgoIk32ZSUUGDE2P7_SP1lOBQeceR8fPDEqQH0iIvTw5q7zG-mMGnZrcWlz1cBQdrWEEqWvz2LfGh5ddYp8Ecjwle2pX2qQSZG-u3liqpHHywEXLZcK4-LI9s1kXMppy22HZeRlO30roJcooN7f6qP7PN33QN91YUPQfNX2xibdP3BLPV-K2w7vHtteZhb6mBDr6whSj-dL_5-1ihMBCmqW-uPWclEX9D_X6xAZS9EMk_AzCgQ0TXdKBW2ywVxwTdGlLLhpv7-iM1pKRi_9Nj4xLt2EdFQ1HOv8cehd9v3FzOmcIY6HrVJQMaJ7oOpNEU8EUTKH4hBrWs96dOJfV7oClwpMcoEXB4zlfvFGKDclgX1902Z1FQZyOJlfKtuq8Nx7D1WjpagNx9ln3Dl4niVod1Imv8S9cYVNx8gyXXSM63kmQNscruNqCPPBig-T1poJ81Ut-jvCeOAB1OiHsT6up463VktB8PcIhAcIICVU6EDFKGYzV6IbJ432dv_3M_6z5urf6Av-Oa5Pr7Y2PMuCpoUDvj-o92
-
-
-
+@token=CfDJ8IQrsw17J5ZHqy02B1iaiL6u2f2xaOcvC4gkL1lnLQnonGW-PHumIrjNV53IPbf7ZIOVTTi1A7Qy83ig3QLG4UlV5AfXCpE9U08ESneWK-m2H1PtkfzDaXA7Uf-X5L3lxLb8R70uRL6I_30Yig9p4V9QOcSXa0cmNEL34eBNxzg0ycoG0Y69pg2tbqWNPkTJjJZvBijmVAJnt-nnqoMrpFuxSgzVhIP-YP7AoQBS2mKrS883l6UlFZUlUi6r1Zc3O3fMXZbhbOXvDbOwUOawGziRBMBz9hiFNfsktqcuRnlRmGEq1AKSPPYtvjFA8OsTHyOSiRDNQRtMQtiXaCSqiaQ1DKX_HX9P3XP3qvvAyIPVYeYuhmRGQInzBXF7Lij9Vpiur1nqxfNLrMdy8cOByclkKZx4MnSCs-Lcq_By7V3zv4egcMSnBcCe0Z0YzTRI7U2MmWwEJ51QHLOcbr8cUFSN7ZftV4ZwNeZcrfx90qB4p6Tkcu86Fms3qGT8Ytmf1NRz5NGgzYQbKCZbbdcY061M6Bq1lLbOereibFLGADeotXcvKTV6UGTlOdqlU2mNBSfHUsYbQYbAwAFR68qipEaSCh5JLoRr0U4tvF3B7yrql1Ay9XnUIVAPR52dshHdw6CkkoCC0NXMLZ0Z9XixfeiTAXaMTiXo5wIuj5hJVNNSge35sbWJHrktn-cbDfg07X4gA7RV-wF4TOffxqvJnsEqcFvoAjQj54XuOvgSRvsbAYppv9gBFW9L1E26MfH-6-OqKQGky-IYiS1qSFmuzjE
 
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 Authorization: Bearer {{token}}
@@ -87,7 +84,7 @@ content-type:application/json
 POST {{Restaurants.API_HostAddress}}/api/identity/login
 content-type:application/json
 {
-    "email":"user@asp.net",
+    "email":"user2@asp.net",
     "password":"Aymane@1"
 }
 ###
@@ -96,7 +93,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "email":"user@asp.net",
+  "email":"user2@asp.net",
     "password":"Aymane@1"
 }
 
