@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Restaurants.Infrastructure.Authorization;
+using Restaurants.Infrastructure.Authorization.Requirements;
+using Microsoft.AspNetCore.Authorization;
 namespace Restaurants.Infrastructure.Extensions
 {
     public static class ServiceCollectionExtensions
@@ -30,7 +32,9 @@ namespace Restaurants.Infrastructure.Extensions
             services.AddScoped<IRestaurantsRepository, RestaurantsRepository>();
             services.AddScoped<IDishesRepository, DishesRepository>();
             services.AddAuthorizationBuilder()
-                    .AddPolicy(PolicyNames.HasNationality, builder => builder.RequireClaim(AppClaimTypes.Nationality,"Moroccan", "French", "American"));
+                    .AddPolicy(PolicyNames.HasNationality, builder => builder.RequireClaim(AppClaimTypes.Nationality, "Moroccan", "French", "American"))
+                    .AddPolicy(PolicyNames.AtLeast20, builder => builder.AddRequirements(new MinimumAgeRequirement(20)));
+            services.AddScoped<IAuthorizationHandler, MinimumAgeRequirementHandler>();
         }
     }
 }

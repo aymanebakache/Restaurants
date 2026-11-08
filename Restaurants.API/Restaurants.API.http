@@ -1,5 +1,6 @@
 @Restaurants.API_HostAddress = https://localhost:7108
-@token=CfDJ8IQrsw17J5ZHqy02B1iaiL6u2f2xaOcvC4gkL1lnLQnonGW-PHumIrjNV53IPbf7ZIOVTTi1A7Qy83ig3QLG4UlV5AfXCpE9U08ESneWK-m2H1PtkfzDaXA7Uf-X5L3lxLb8R70uRL6I_30Yig9p4V9QOcSXa0cmNEL34eBNxzg0ycoG0Y69pg2tbqWNPkTJjJZvBijmVAJnt-nnqoMrpFuxSgzVhIP-YP7AoQBS2mKrS883l6UlFZUlUi6r1Zc3O3fMXZbhbOXvDbOwUOawGziRBMBz9hiFNfsktqcuRnlRmGEq1AKSPPYtvjFA8OsTHyOSiRDNQRtMQtiXaCSqiaQ1DKX_HX9P3XP3qvvAyIPVYeYuhmRGQInzBXF7Lij9Vpiur1nqxfNLrMdy8cOByclkKZx4MnSCs-Lcq_By7V3zv4egcMSnBcCe0Z0YzTRI7U2MmWwEJ51QHLOcbr8cUFSN7ZftV4ZwNeZcrfx90qB4p6Tkcu86Fms3qGT8Ytmf1NRz5NGgzYQbKCZbbdcY061M6Bq1lLbOereibFLGADeotXcvKTV6UGTlOdqlU2mNBSfHUsYbQYbAwAFR68qipEaSCh5JLoRr0U4tvF3B7yrql1Ay9XnUIVAPR52dshHdw6CkkoCC0NXMLZ0Z9XixfeiTAXaMTiXo5wIuj5hJVNNSge35sbWJHrktn-cbDfg07X4gA7RV-wF4TOffxqvJnsEqcFvoAjQj54XuOvgSRvsbAYppv9gBFW9L1E26MfH-6-OqKQGky-IYiS1qSFmuzjE
+@token=CfDJ8IQrsw17J5ZHqy02B1iaiL6Ye0SQGc_wl0Xlsl3y_hdvj7rlfh8fw2pqd81FvOWpCzp1hEJZVl6aZ_qv_g9GDSGpEOsJEgHIbbyOhiRXeBZvvnFzReJzpc_hAZ7mDhwA6v5BxQ3PX_vMa6D4EA__DhzIV532rPUTDO1LDwUQGILr1ZHhaDxYGo-W5YV5LnwQiuUlx-TuEfBwWqMhc3zn3ReDm7Hb1RyVSNH2WGnC0gCn2YosxKsZhE_7YYzsst-JW0BDVq9-_P528z4fBqB7FHjUnHRZ2Bz12y8zn21dODhNGnORZ1TlV2WCoPTLz1w5UWV4anVsJClMTYK6fb2vvnL61RFbogi6pgDe5-FgKTwGo7UyJKYxMHJH1IPLDcUvIKH5TQmQrjb0AsaBuUXx2Qb-yXsJjDHAFq7F-modugM2URIdKFAMEOKcc-u8pP_OmcNzwvhdrJCIbkskVCGQGN3uhKAcDCaBGLQcaYSHd06Ym9fvdeGHF7SdNekFpVIEP4mPR2u__uIhJ-yA9MrgqTGTaSyD3NI6MtTPyFFbM-uFYXMV6TseWGgrgt9nSK-sxXGgI_Na3nRvb9Xl_8SLk-PBwT92R1aaEy_n5Ln365Jh6d-UVXO04uiNGMuFhsHNmDSpYLVmOqpY5riVfrxKLoC4_YqvhWoJa0lS_deQj0KOTn68zeHOJCLC63aESUPV05tMoGCJXfqHiDqeyoGY-MzsUxiEFG3dlsN0X17cQL50i8dxjQAx-fWZPhld6yTRqGYkSAg-HWmK_MWsd4k52h9jLsYp5lPQefLOWgupJehJHEF3o37tfeXoAdpqNX6JOyf3JsgevyXl6XRv3FMKCpsNddkVjHuHRVz4qRRZAKbVwY6U7KakdkxsrX5nQy4Iew
+
 
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 Authorization: Bearer {{token}}
@@ -44,6 +45,7 @@ Content-Type: application/json
 ###
 
 POST {{Restaurants.API_HostAddress}}/api/restaurants/10/dishes
+Authorization:Brearer {{token}}
 Content-Type: application/json
 
 {
@@ -59,7 +61,7 @@ Content-Type: application/json
 
 
 GET {{Restaurants.API_HostAddress}}/api/restaurants/{{id}}/dishes
-
+Authorization:Brearer {{token}}
 ###
 
 @restaurantId=2
@@ -84,7 +86,7 @@ content-type:application/json
 POST {{Restaurants.API_HostAddress}}/api/identity/login
 content-type:application/json
 {
-    "email":"user2@asp.net",
+    "email":"admin@asp.net",
     "password":"Aymane@1"
 }
 ###

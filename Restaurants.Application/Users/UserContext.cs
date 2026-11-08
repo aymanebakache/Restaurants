@@ -18,7 +18,10 @@ namespace Restaurants.Application.Users
             var userId = user.FindFirst(c => c.Type == ClaimTypes.NameIdentifier)!.Value;
             var userEmail = user.FindFirst(c => c.Type == ClaimTypes.Email)!.Value;
             var userRoles = user.Claims.Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value);
-            return new CurrentUser(userId, userEmail, userRoles);
+            var nationality = user.FindFirst(c => c.Type == "Nationality")?.Value;
+            var birthdayString = user.FindFirst(c => c.Type == "BirthDay")?.Value;
+            var birthday = birthdayString == null ? (DateOnly?)null : DateOnly.ParseExact(birthdayString, "yyyy-MM-dd");
+            return new CurrentUser(userId, userEmail, userRoles,nationality,birthday);
         }
     }
 }
