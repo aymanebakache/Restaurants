@@ -1,5 +1,7 @@
 @Restaurants.API_HostAddress = https://localhost:7108
-@token=CfDJ8IQrsw17J5ZHqy02B1iaiL51C_ntjdnIWjYar8soOy916bsngmTDqWYoJmjQEOO9v9JZ0nkqqDjK90E-rEnqSmDOqJvMS1SC7xbpY2Vr_JloK7Ho8EHfv7ilgicEmyMrp1V9afmCD9FZTgv6serPipuATgwL57n9EQ2U-6NqaVi9_wQHUjluY2L-PqeIFq2QX_P_zUIjZ_xQqxGD9X14HWfvWooQGNLlvMKLD9JD06BPYPHJjX7eXcrl5E0k2xYOPUcupSId3YzJ-xnSBy66rNElrJAlgKuCsnkkDvybfijR4TlNhjFBr9sRQ8MjBkucL45W2-Ux-TJpxqMRTEqM8zjLcDMyEkFt75_9TfMBgnX5s3Lvkxu5KgzzVZl40ecPwOXGlmc_DYQduct70LbwtfLPPVQWTYho4P0VSrsEaTgiD9tj5_RhBOjIuwlXSSz-nuJb6sLUeg6Vj40rZq-GPbXmF3W4nLckVk4tvAzgWeLNLPph8lJS1SgaL6v1iq8hi5WplGP4vfBNAY3r7-NtwU0WW7jEotN7x893v42OABD41Jq5nkV7vSTy2coxM20LqVZjQnjxMMGgdx4XMIPIM3S-JmP1wW5gmqEZiqa6BYN2B1k5ZEkdtGt52vF0oI79CNiLQpbU0eEZ_eW5vYVbAFSb-O2JTAQ0OyhxHZ8YxbstIQ28KUEGqhJSs3LjG8JwyCupPnZ6iIC4aOOTI_adjzFrZHW2i6gfvx4XgJQuy8E-diQ1CxL-Zo_ge5cSvd4H30E9ka3O66mY9gVx4n1CHroB0hcbtVmh8ZIFvwV-VF8DdZpuecMsZdfkMV8QEAF7YWEs8y7e47fa-AqycREStbBsNIxlNN9u3dXFSWpGv2euj8dLsdVpztzKLJWF2ytwdw
+@token=CfDJ8IQrsw17J5ZHqy02B1iaiL4yYAwm4Y0jc6jYb9yGmwNIx_dvse37KJf7BUf53aM0ZY0I45H58ED32MupeB3wnctnRlhYAys3HRO0ZLqr5Bw0UqvdpKuh4kcxxkZWVzR3LcnJUzx8KVbP__T-XbeyqinAzzjbzbefjcvbvwMdrLBNz22E9YxQvMvdZLCTpgWlwvGYsf07tEGiJuNfxtvXX7UC1aF0IGkquzfVMyjqxo3Ut7-uHkYKErPCYx5OwRJdM2T0U8ptjwS78tRZfc8jwoaa711bvjSBwxjtYBBSuGx_SdUa4g8s2tNnXozazBixmUyMER7rclnY42TYoWVkDPF4w1LAPPOqo3YqO230GEIh22VCLCLfxcpGcME9zSLZlcYCbTLfW70BC3UhnQe4-pVpPl9prBB_1rbDliT7Ojuah9uJK__88AVHjE45IH6BcHVCWS3KV3U7J_kKzHU0DcpT00k9HSPgJM1HKjVV5PEaqmq6k_oEUNBrJtZWFXakbUKApwKN4rjR4W2P-iQUAb6HLvKiK-e-YuYcDVVEUrAnsDlaalGUMqgWjckiWsO8Z7zwgKK5nCw3XPqPBkLaILdxejgVwtdQ3jXW8HRsq7UhTCyInX9CXoLHtQtlENP3oZYmmA-6z1RNJHpofB0QMZTrS3hbZ_WE383kgYNzd53M9BaMFs2ae69zgK5Pldbrp4eLWasWd3uVjIAhpBEcsBlNvIUBx8SdRmfRzQx1nMhjlmRYwKWlRTJqbIDhgjRb4ptsKgWltn256Dz3U9k-ZR8
+
+
 
 
 
@@ -18,7 +20,7 @@ POST {{Restaurants.API_HostAddress}}/api/restaurants
 Authorization: Bearer {{token}}
 Content-Type:application/json
 {
-    "Name": "Pastilla testing with admin",
+    "Name": "res owner testing with owner",
       "Description": "A cozy restaurant serving a variety of moroccan delicious dishes.",
       "Category": "Moroccan",
       "HasDelivery": true,
@@ -30,15 +32,16 @@ Content-Type:application/json
 }
 
 ###
-DELETE {{Restaurants.API_HostAddress}}/api/restaurants/0
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/11
+Authorization: Bearer {{token}}
 
 ###
 
-PATCH {{Restaurants.API_HostAddress}}/api/restaurants/11
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/6
 Content-Type: application/json
 
 {
-  "Name": "Pastilla",
+  "Name": "Pastilla to 2",
   "Description": "Pastilla is a meat or seafood pie in Maghrebi cuisine made with warqa dough, which is similar to filo.",
   "HasDelivery": false
 }
@@ -87,7 +90,7 @@ content-type:application/json
 POST {{Restaurants.API_HostAddress}}/api/identity/login
 content-type:application/json
 {
-    "email":"admin@asp.net",
+    "email":"user2@asp.net",
     "password":"Aymane@1"
 }
 ###
