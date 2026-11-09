@@ -30,6 +30,7 @@ namespace Restaurants.Infrastructure.Authorization.Services
                 logger.LogInformation("owner's restaurant authorized succefully");
                 return true;
             }
+            logger.LogInformation("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
             return false;
         }
     }
