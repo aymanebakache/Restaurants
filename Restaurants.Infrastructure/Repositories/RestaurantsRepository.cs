@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
+using Restaurants.Application.Common;
 using Restaurants.Domain.Entities;
 using Restaurants.Domain.Repositories;
 using Restaurants.Infrastructure.Persistence;
@@ -38,17 +40,21 @@ namespace Restaurants.Infrastructure.Repositories
         }
         public async Task SaveChanges() => await restaurantsDbContext.SaveChangesAsync();
 
-        public async Task<IEnumerable<Restaurant>> GetAllMatchingAsync(string? searchPhrase)
+        public async Task<(IEnumerable<Restaurant>,int)> GetAllMatchingAsync(string? searchPhrase,int pageSize,int pageNumber)
         {
             var searchPhraseLower = searchPhrase?.ToLower();
-            var restaurants = await restaurantsDbContext.Restaurants
+            var queryBase = restaurantsDbContext.Restaurants
                                                  .Where(r => searchPhraseLower == null ||
-                                                            r.Name.ToLower().Contains(searchPhraseLower) || 
+                                                            r.Name.ToLower().Contains(searchPhraseLower) ||
                                                             r.Description.ToLower().Contains(searchPhraseLower)
-                                                        )
-                                                 .ToListAsync();
-            return restaurants;
+                                                        );
+            var totalCount = await queryBase.CountAsync();
+            var restaurants = await queryBase.Skip(pageSize * (pageNumber - 1))
+                                           .Take(pageSize)
+                                           .ToListAsync();
+            return (restaurants,totalCount);
 
         }
+
     }
 }
