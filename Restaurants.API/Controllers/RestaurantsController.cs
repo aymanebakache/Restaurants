@@ -13,8 +13,10 @@ using Restaurants.Domain.Constants;
 using Restaurants.Domain.Entities;
 using Restaurants.Infrastructure.Authorization;
 using System.ComponentModel.DataAnnotations;
+using System.Net.WebSockets;
 
 namespace Restaurants.API.Controllers;
+
 [ApiController]
 [Route("api/restaurants")]
 [Authorize]
@@ -22,24 +24,29 @@ public class RestaurantsController(IMediator mediator) : ControllerBase
 {
     [HttpGet]
     [AllowAnonymous]
-   // [Authorize(Policy =PolicyNames.CreatedAtLeast2Restaurants)]
-    public async Task<ActionResult<IEnumerable<RestaurantDto>>> GetAll([FromQuery] GetAllRestaurantsQuery query)
+    // [Authorize(Policy =PolicyNames.CreatedAtLeast2Restaurants)]
+    public async Task<ActionResult<IEnumerable<RestaurantDto>>> GetAll([FromQuery] GetAllRestaurantsQuery query, IValidator<GetAllRestaurantsQuery> validator)
     {
+        var result = await validator.ValidateAsync(query);
+        if (!result.IsValid)
+        {
+            return BadRequest(result.ToDictionary());
+        }
         var restaurants = await mediator.Send(query);
         return Ok(restaurants);
     }
     [HttpGet("{id}")]
-    [Authorize(Policy =PolicyNames.HasNationality)]
-    public async Task<ActionResult<RestaurantDto>> GetById([FromRoute]int id)
+    [Authorize(Policy = PolicyNames.HasNationality)]
+    public async Task<ActionResult<RestaurantDto>> GetById([FromRoute] int id)
     {
         var restaurant = await mediator.Send(new GetRestaurantByIdQuery(id));
-        
+
         return Ok(restaurant);
     }
-    
+
     [HttpPost]
-    [Authorize(Roles =UserRoles.Owner)]
-    public async Task<IActionResult> CreateRestaurant(CreateRestaurantCommand createRestaurantCommand,IValidator<CreateRestaurantCommand> validator)
+    [Authorize(Roles = UserRoles.Owner)]
+    public async Task<IActionResult> CreateRestaurant(CreateRestaurantCommand createRestaurantCommand, IValidator<CreateRestaurantCommand> validator)
     {
         var result = await validator.ValidateAsync(createRestaurantCommand);
         if (!result.IsValid)
@@ -53,22 +60,22 @@ public class RestaurantsController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> Delete([FromRoute] int id)
     {
         await mediator.Send(new DeleteRestaurantCommand(id));
-        
+
         return NoContent();
-       
+
     }
     [HttpPatch("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> UpdateRestaurant([FromRoute] int id,UpdateRestaurantCommand updateRestaurantCommand,IValidator<UpdateRestaurantCommand> validator)
+    public async Task<IActionResult> UpdateRestaurant([FromRoute] int id, UpdateRestaurantCommand updateRestaurantCommand, IValidator<UpdateRestaurantCommand> validator)
     {
         var result = await validator.ValidateAsync(updateRestaurantCommand);
-        if(!result.IsValid)
+        if (!result.IsValid)
             return BadRequest(result.ToDictionary());
         updateRestaurantCommand.Id = id;
         await mediator.Send(updateRestaurantCommand);
-        
-         return NoContent();
-        
+
+        return NoContent();
+
     }
 }
