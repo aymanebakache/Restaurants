@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="Restaurants.API/Restaurants.API.csproj" />
+  <Project Path="Restaurants.Application.Tests/Restaurants.Application.Tests.csproj" Id="b4681a3d-2aa3-4567-82ca-15a48d265653" />
   <Project Path="Restaurants.Application/Restaurants.Application.csproj" Id="d73931e5-7446-4948-8ac5-a14ab699233a" />
   <Project Path="Restaurants.Domain/Restaurants.Domain.csproj" Id="04345f82-0660-47d0-a142-2a7db9ac9374" />
   <Project Path="Restaurants.Infrastructure/Restaurants.Infrastructure.csproj" Id="9d24883a-7b56-40ce-a81c-36dd11043220" />
